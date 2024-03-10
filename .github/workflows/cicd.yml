@@ -1,7 +1,5 @@
 name: test cicd
 on:
-  push:
-    branches: main
   workflow_call:
 
 jobs:
@@ -10,4 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: printing hello 
-        run: echo "hello-world"
+        run: |
+          echo "hello-world"
+          echo "second hello"
