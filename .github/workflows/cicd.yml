@@ -13,3 +13,20 @@ jobs:
         run: |
           echo "hello-world"
           echo "second hello"
+
+  SECOND_TEST:
+    needs: TEST
+    runs-on: ubuntu-latest
+    steps:
+      - name: running some other command
+        run: |
+          echo "starting the script"
+          MY_VAR="Hello World"
+          if [ MY_VAR=="Hello World" ]; then
+            echo "VAR IS CORRECT SET"
+            echo "value of VAR is $MY_VAR"
+          else
+            echo "VAR IS NOT SET CORRECTLY"
+            echo "value of VAR is $MY_VAR"
+          fi
+    
