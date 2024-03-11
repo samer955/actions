@@ -14,7 +14,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4.1.1
       - name: Printling ls
-        run: ls 
+        run: ls
+      - name: Run tests
+        run: go tests
+      - name: build code
+        run: go build -o app
 
   SECOND_TEST:
     needs: BUILDING
