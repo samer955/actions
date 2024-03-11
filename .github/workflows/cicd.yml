@@ -1,5 +1,11 @@
-name: test cicd
-on: [push, workflow_dispatch]
+name: Test CICD
+on:
+  push:
+    branches: 
+      - main
+    paths-ignore:
+      - './github/workflows/*'
+  workflow_dispatch:
 
 jobs:
   
