@@ -6,16 +6,18 @@ on:
 
 jobs:
   
-  TEST:
+  BUILDING:
     runs-on: ubuntu-latest
     steps:
       - name: printing hello 
-        run: |
-          echo "hello-world"
-          echo "second hello"
+        run: echo "Starting the Building job"
+      - name: Checkout Repository
+        uses: actions/checkout@v4.1.1
+      - name: Printling ls
+        run: ls 
 
   SECOND_TEST:
-    needs: TEST
+    needs: BUILDING
     runs-on: ubuntu-latest
     steps:
       - name: running some other command
