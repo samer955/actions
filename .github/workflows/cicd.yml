@@ -22,7 +22,7 @@ jobs:
       - name: run test
         run: go test
       - name: Build the code
-        run: go build -o app
+        run: go build
 
   SECOND_TEST:
     needs: BUILDING
