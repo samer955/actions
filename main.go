@@ -4,6 +4,8 @@ import "fmt"
 
 var printer Printer
 
+var something Printer
+
 func main() {
 
 	var toPrint = "World"
