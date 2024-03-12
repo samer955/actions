@@ -25,7 +25,9 @@ jobs:
       - name: run test
         run: go test
       - name: Build the code
-        run: go build
+        run: go build -o app
+      - name: print inside of the folder
+        run: ls
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v4
         with:
@@ -33,6 +35,9 @@ jobs:
           skip-cache: true
           skip-pkg-cache: true
           skip-build-cache: true
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+
 
   SECOND_TEST:
     needs: BUILDING
