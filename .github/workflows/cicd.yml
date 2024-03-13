@@ -63,7 +63,7 @@ jobs:
         
           
   SECOND_TEST:
-    needs: DOWNLOAD_ARTIFACT
+    needs: [ DOWNLOAD_ARTIFACT, BUILD ]
     runs-on: ubuntu-latest
     steps:
       - name: running some other command
