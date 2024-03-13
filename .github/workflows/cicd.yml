@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app
-          path: compiled
+          path: .
 
   DOWNLOAD_ARTIFACT:
     needs: BUILD
@@ -49,21 +49,13 @@ jobs:
         uses: actions/download-artifact@v4.1.4
         with:
           name: app
-          path: compiled
-      - name: Printing folder
-        run: ls
+          path: .
         
           
   SECOND_TEST:
     needs: DOWNLOAD_ARTIFACT
     runs-on: ubuntu-latest
     steps:
-      - name: printing the folder without checkout
-        run: ls
-      - name: Checkout Repository
-        uses: actions/checkout@v4.1.1
-      - name: printing the folder after checkout
-        run: ls
       - name: running some other command
         run: |
           echo "starting the script"
