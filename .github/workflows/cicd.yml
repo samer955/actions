@@ -27,7 +27,7 @@ jobs:
       - name: run test
         run: go test
       - name: Build the code
-        run: go build -o compiled/app
+        run: go build -o app
       - name: print inside of the folder
         run: ls
       - name: golangci-lint
