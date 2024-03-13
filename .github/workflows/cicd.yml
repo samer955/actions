@@ -39,12 +39,15 @@ jobs:
           skip-build-cache: true
       - name: store name exec in output
         id: publish
-        run: find app -exec echo 'script-file={}' >> "GITHUB_OUTPUT" ';'
+        #run: find app -exec echo 'script-file={}' >> "GITHUB_OUTPUT" ';'
+        run: echo "script-file=hello" >> "$GITHUB_OUTPUT"
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: app
           path: .
+      - name: test the github output
+        run: echo ${{ steps.publish.outputs.script-file }}
 
   DOWNLOAD_ARTIFACT:
     needs: BUILD
