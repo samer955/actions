@@ -9,7 +9,7 @@ on:
 
 jobs:
   
-  BUILDING:
+  BUILD:
     runs-on: ubuntu-latest
     steps:
       - name: printing hello 
@@ -40,11 +40,23 @@ jobs:
         with:
           name: app
           path: .
+
+  DOWNLOAD_ARTIFACT:
+    needs: BUILD
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download previous build artifact
+        uses: actions/download-artifact@v4.1.4
+        with:
+          name: app
+      - name: Printing folder
+        run: ls
+        
           
 
 
   SECOND_TEST:
-    needs: BUILDING
+    needs: DOWNLOAD_ARTIFACT
     runs-on: ubuntu-latest
     steps:
       - name: running some other command
