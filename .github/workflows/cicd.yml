@@ -12,7 +12,7 @@ jobs:
   BUILD:
     runs-on: ubuntu-latest
     outputs:
-      script-file: ${{ steps.publish. }}
+      script-file: ${{ steps.publish.outputs.script-file }}
     steps:
       - name: printing hello 
         run: echo "Starting the Building job"
@@ -38,6 +38,7 @@ jobs:
           skip-pkg-cache: true
           skip-build-cache: true
       - name: store name exec in output
+        id: publish
         run: find app echo 'script-file={}' >> GITHUB_OUTPUT ';'
       - name: upload artifact
         uses: actions/upload-artifact@v4
