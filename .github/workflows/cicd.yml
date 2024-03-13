@@ -39,7 +39,7 @@ jobs:
           skip-build-cache: true
       - name: store name exec in output
         id: publish
-        run: find app -exec echo 'script-file={}' >> GITHUB_OUTPUT ';'
+        run: find app -exec echo 'script-file={}' >> "GITHUB_OUTPUT" ';'
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
