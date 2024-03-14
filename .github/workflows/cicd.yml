@@ -53,6 +53,13 @@ jobs:
       - name: test the github output
         run: echo ${{ steps.publish.outputs.script-file }}
 
+  DOWNLOAD_REUSABLE:
+    needs: BUILD
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      artifact-name: app
+
+
   DOWNLOAD_ARTIFACT:
     needs: BUILD
     environment: dev

@@ -1,0 +1,22 @@
+name: reusable example workflow
+on: 
+  workflow_call:
+    inputs:
+      artifact-name:
+        description: name of the artifact to be passed from main workflow
+        required: true
+        type: string
+
+jobs:
+  
+  PRINT:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get the artifact
+        uses: actions/download-artifact@v4.1.4
+        with:
+          name: ${{ inputs.artifact-name }}
+      - name: printing inside of the folder
+        run: ls
+      - name: printing message
+        run: echo "This has been called from a reusable workflow"
