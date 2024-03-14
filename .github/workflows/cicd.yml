@@ -37,6 +37,9 @@ jobs:
           skip-cache: true
           skip-pkg-cache: true
           skip-build-cache: true
+      - name: test report
+        if: failure()
+        run: echo "something went wrong" 
       - name: store name exec in output
         id: publish
         #run: find app -exec echo 'script-file={}' >> "GITHUB_OUTPUT" ';'
@@ -86,5 +89,5 @@ jobs:
             echo "value of VAR is $MY_VAR"
           fi
       - name: output filename from previous job
-        run: echo "${{ needs.BUILD.outputs.script-file }}"
+        run: echo "${{ needs }}"
     
