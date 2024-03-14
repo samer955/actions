@@ -51,6 +51,10 @@ jobs:
 
   DOWNLOAD_ARTIFACT:
     needs: BUILD
+    environment: dev
+    env:
+      DB_USERNAME: ${{ secret.DATABASE_USERNAME }}
+      DB_PASSWORD: ${{ secret.DATABASE_PASSWORD }}
     runs-on: ubuntu-latest
     steps:
       - name: Download previous build artifact
@@ -60,6 +64,10 @@ jobs:
           path: .
       - name: output filename from previous job
         run: echo "${{ needs.BUILD.outputs.script-file }}"
+      - name: testing/printing secret stored in dev environment
+        run: | 
+          echo USERNAME: $DB_USERNAME
+          echo PASSWORD: $DB_PASSWORD
         
           
   SECOND_TEST:
