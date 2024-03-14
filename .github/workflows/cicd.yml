@@ -53,8 +53,8 @@ jobs:
     needs: BUILD
     environment: dev
     env:
-      DB_USERNAME: ${{ secret.DATABASE_USERNAME }}
-      DB_PASSWORD: ${{ secret.DATABASE_PASSWORD }}
+      DB_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
     runs-on: ubuntu-latest
     steps:
       - name: Download previous build artifact
