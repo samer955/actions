@@ -39,7 +39,7 @@ jobs:
           skip-pkg-cache: true
           skip-build-cache: true
       - name: test report
-        if: failure() && steps.lint.outcome == 'success'
+        if: failure() && steps.lint.outcome == 'failure'   
         run: echo "something went wrong" 
       - name: store name exec in output
         id: publish
