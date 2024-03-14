@@ -31,6 +31,7 @@ jobs:
       - name: print inside of the folder
         run: ls
       - name: golangci-lint
+        id: lint
         uses: golangci/golangci-lint-action@v4
         with:
           version: v1.54
@@ -38,7 +39,7 @@ jobs:
           skip-pkg-cache: true
           skip-build-cache: true
       - name: test report
-        if: failure()
+        if: failure() && steps.lint.outcome == 'success'
         run: echo "something went wrong" 
       - name: store name exec in output
         id: publish
