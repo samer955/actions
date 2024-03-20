@@ -1,6 +1,7 @@
 import os
 
 ## This code is just a test to simulate how to create an action with docker container
+## the bucket variable is passed through the github parent workflow
 def run():
     bucket = os.environ['INPUT_BUCKET']
     

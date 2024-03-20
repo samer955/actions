@@ -1,0 +1,12 @@
+name: 'test print python'
+description: 'test custom action to print python message'
+inputs:
+  bucket:
+    description: 'Test bucket name'
+    required: true
+outputs:
+  test_output:
+    description: "The message printed from the python code"
+runs:
+  using: docker
+  image: Dockerfile
