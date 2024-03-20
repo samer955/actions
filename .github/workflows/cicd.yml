@@ -63,8 +63,10 @@ jobs:
     needs: BUILD
     runs-on: ubuntu-latest
     steps:
-      - name: CHeckout repo
+      - name: Checkout repo
         uses: actions/checkout@v4.1.1
+      - name: ls
+        run: ls
       - name: deploy to s3 test
         uses: ./.github/actions/deploy-s3-docker
         with:
