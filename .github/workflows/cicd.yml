@@ -70,8 +70,8 @@ jobs:
       - name: deploy to s3 test
         id: deploy
         uses: ./.github/actions/deploy-s3-docker
-        with:
-          bucket: samer-bucket
+        # with:
+        #   bucket: samer-bucket
       - name: output information from python code
         run: |
           echo "This is the output stored in python: ${{ steps.deploy.outputs.test_output}}"
