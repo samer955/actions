@@ -61,7 +61,7 @@ jobs:
 
   CUSTOM_ACTION:
     needs: BUILD
-    uses: ./actions/deploy-s3-docker
+    uses: ./.github/actions/deploy-s3-docker
     with:
       bucket: samer-bucket
 
