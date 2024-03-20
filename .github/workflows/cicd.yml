@@ -61,9 +61,14 @@ jobs:
 
   CUSTOM_ACTION:
     needs: BUILD
-    uses: ./.github/actions/deploy-s3-docker
-    with:
-      bucket: samer-bucket
+    runs-on: ubuntu-latest
+    steps:
+      - name: CHeckout repo
+        uses: actions/checkout@v4.1.1
+      - name: deploy to s3 test
+        uses: ./.github/actions/deploy-s3-docker
+        with:
+          bucket: samer-bucket
 
 
   DOWNLOAD_ARTIFACT:
