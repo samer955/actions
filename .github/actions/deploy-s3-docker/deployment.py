@@ -6,6 +6,9 @@ def run():
     
     print('bucket test name: ' + bucket)
 
+    toPrint = "hello from python"
+
+    print(f'::set-output name=test_output::{toPrint}')
 
 if __name__ == '__main__':
     run()

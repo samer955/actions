@@ -62,15 +62,21 @@ jobs:
   CUSTOM_ACTION:
     needs: BUILD
     runs-on: ubuntu-latest
+    outputs:
+      test_output: ${{ steps.deploy.outputs.test_output }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4.1.1
       - name: ls
         run: ls
       - name: deploy to s3 test
+        id: deploy
         uses: ./.github/actions/deploy-s3-docker
         with:
           bucket: samer-bucket
+      - name: output information from python code
+        run: |
+          echo "This is the output stored in python: ${{ steps.deploy.outputs.test_output}}"
 
 
   DOWNLOAD_ARTIFACT:
