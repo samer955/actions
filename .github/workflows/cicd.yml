@@ -63,15 +63,15 @@ jobs:
     needs: BUILD
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repo 
         uses: actions/checkout@v4.1.1
       - name: ls
         run: ls
       - name: deploy to s3 test
         id: deploy
         uses: ./.github/actions/deploy-s3-docker
-        # with:
-        #   bucket: samer-bucket
+        with:
+          bucket: samer-bucket
       - name: output information from python code
         run: |
           echo "This is the output stored in python: ${{ steps.deploy.outputs.test_output}}"
