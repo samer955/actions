@@ -59,6 +59,12 @@ jobs:
     with:
       artifact-name: app
 
+  CUSTOM_ACTION:
+    needs: BUILD
+    uses: ./actions/deploy-s3-docker
+    with:
+      bucket: samer-bucket
+
 
   DOWNLOAD_ARTIFACT:
     needs: BUILD
